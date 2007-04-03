@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  * A buff to a fighter.
  * 
@@ -6,47 +8,56 @@
 public class Buff
 {
 
-	public String id;
+	private String id;
 
-	public String name;
+	private String name;
 
-	public int bonusToMeleeHit;
+	private int bonusToMeleeHit;
 
-	public int bonusToDodge;
+	private int bonusToDodge;
 
-	public int bonusToBlock;
+	private int bonusToBlock;
 
-	public int bonusToCast;
+	private int bonusToCast;
 
-	public int bonusToSave;
+	private int bonusToSave;
 
-	public int bonusToResist;
+	private int bonusToResist;
 
-	public int bonusToCrit;
+	private int bonusToCrit;
+	
+	private int damagePerTick;
+	
+	private int timePerTick;
 
-	public long creationTime;
+	private Date creationTime;
+	
+	private Date expirationTime;
 
-	public int duration;
+	private int duration;
 
-	public String pictureFile;
+	private String pictureFile;
 
-	public Buff(String id, String name, int melee, int dodge, int block,
-			int cast, int save, int resist, int crit, int duration,
-			String pictureFile)
+	public Buff(String id, String name, int bonusToMeleeHit,
+	        int bonusToDodge, int bonusToBlock,
+			int bonusToCast, int bonusToSave, int bonusToResist,
+			int bonusToCrit, int damagePerTick,
+			int timePerTick, int duration, String pictureFile)
 	{
 		this.id = id;
 		this.name = name;
 
-		creationTime = System.currentTimeMillis();
+		this.bonusToMeleeHit = bonusToMeleeHit;
+		this.bonusToDodge = bonusToDodge;
+		this.bonusToBlock = bonusToBlock;
+		this.bonusToCast = bonusToCast;
+		this.bonusToSave = bonusToSave;
+		this.bonusToResist = bonusToResist;
+		this.bonusToCrit = bonusToCrit;
+		
+		this.damagePerTick = damagePerTick;
+		this.timePerTick = timePerTick;
 		this.duration = duration;
-
-		bonusToMeleeHit = melee;
-		bonusToDodge = dodge;
-		bonusToBlock = block;
-		bonusToCast = cast;
-		bonusToSave = save;
-		bonusToResist = resist;
-		bonusToCrit = crit;
 
 		this.pictureFile = pictureFile;
 	}
@@ -69,8 +80,114 @@ public class Buff
 		s += "Bonus to Cast: " + String.valueOf(bonusToCast) + "\n";
 		s += "Bonus to Save: " + String.valueOf(bonusToSave) + "\n";
 		s += "Bonus to Resist: " + String.valueOf(bonusToResist) + "\n";
-		s += "Bonus to Crit: " + String.valueOf(bonusToCrit);
+		s += "Bonus to Crit: " + String.valueOf(bonusToCrit) + "\n";
+		s += "Damage per Tick: " + String.valueOf(damagePerTick) + "\n";
+		s += "Time per Tick: " + String.valueOf(timePerTick);
 
 		return s;
 	}
+	
+	public Buff createBuff()
+	{
+	    Buff b = new Buff(id, name, bonusToMeleeHit,
+		        bonusToDodge, bonusToBlock,
+				bonusToCast, bonusToSave, bonusToResist,
+				bonusToCrit, damagePerTick,
+				timePerTick, duration, pictureFile);
+	    
+	    b.creationTime = new Date();
+	    b.expirationTime = new Date(b.creationTime.getTime() + 1000 * duration);
+	    
+	    return b;
+	}
+    /**
+     * @return Returns the bonusToBlock.
+     */
+    public int getBonusToBlock() {
+        return bonusToBlock;
+    }
+    /**
+     * @return Returns the bonusToCast.
+     */
+    public int getBonusToCast() {
+        return bonusToCast;
+    }
+    /**
+     * @return Returns the bonusToCrit.
+     */
+    public int getBonusToCrit() {
+        return bonusToCrit;
+    }
+    /**
+     * @return Returns the bonusToDodge.
+     */
+    public int getBonusToDodge() {
+        return bonusToDodge;
+    }
+    /**
+     * @return Returns the bonusToMeleeHit.
+     */
+    public int getBonusToMeleeHit() {
+        return bonusToMeleeHit;
+    }
+    /**
+     * @return Returns the bonusToResist.
+     */
+    public int getBonusToResist() {
+        return bonusToResist;
+    }
+    /**
+     * @return Returns the bonusToSave.
+     */
+    public int getBonusToSave() {
+        return bonusToSave;
+    }
+    /**
+     * @return Returns the creationTime.
+     */
+    public Date getCreationTime() {
+        return creationTime;
+    }
+    /**
+     * @return Returns the damagePerTick.
+     */
+    public int getDamagePerTick() {
+        return damagePerTick;
+    }
+    /**
+     * @return Returns the duration.
+     */
+    public int getDuration() {
+        return duration;
+    }
+    /**
+     * @return Returns the expirationTime.
+     */
+    public Date getExpirationTime() {
+        return expirationTime;
+    }
+    /**
+     * @return Returns the id.
+     */
+    public String getId() {
+        return id;
+    }
+    /**
+     * @return Returns the name.
+     */
+    public String getName() {
+        return name;
+    }
+    /**
+     * @return Returns the pictureFile.
+     */
+    public String getPictureFile() {
+        return pictureFile;
+    }
+    /**
+     * @return Returns the timePerTick.
+     */
+    public int getTimePerTick() {
+        return timePerTick;
+    }
 }

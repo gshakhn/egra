@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  * Information about the monster.
  * 
@@ -22,9 +24,9 @@ public class Monster extends Fighter
 
 	public boolean alive;
 
-	public int spawnTime;
+	public Date spawnTime;
 
-	public long deathTime;
+	public Date deathTime;
 
 	public int chanceToMove;
 
@@ -100,7 +102,7 @@ public class Monster extends Fighter
 		// Check Death
 		if (alive && myCurrentHealth != 0)
 		{
-			deathTime = System.currentTimeMillis();
+			deathTime = new Date();
 			alive = false;
 		}
 
@@ -142,6 +144,8 @@ public class Monster extends Fighter
 		currentCell = home;
 
 		alive = true;
+		
+		spawnTime = new Date();
 
 		return m;
 	}

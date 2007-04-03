@@ -67,7 +67,7 @@ public class Database
 
 	private static void initializeAmulets()
 	{
-		items[1][0] = new Armor("Amulet-0", 1, "None", -1, -1, 0, 0, 0, 0, 0,
+		items[1][0] = new Armor("Amulet-0", Item.ItemType.AMULET, "None", -1, -1, 0, 0, 0, 0, 0,
 				0, 0, 0, 0.0, 0.0);
 	}
 

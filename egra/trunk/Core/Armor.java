@@ -7,7 +7,7 @@
 public class Armor extends EquippableItem
 {
 
-	public Armor(String id, int type, String name, int currentHealth,
+	public Armor(String id, ItemType type, String name, int currentHealth,
 			int maxHealth, int cost, int melee, int block, int dodge, int cast,
 			int save, int resist, int crit, double meleeBonus, double spell)
 	{

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * An ability, such as spell or special attack.
  * 
@@ -8,79 +10,83 @@ public class Ability
 	/**
 	 * The unique ID of this <code>Ability</code>.
 	 */
-	public String id;
+	private String id;
 
 	/**
 	 * The name of this <code>Ability</code> for the end user.
 	 */
-	public String name;
+	private String name;
 
 	/**
 	 * The mana cost of using this <code>Ability</code>.
 	 */
-	public int manaCost;
+	private int manaCost;
 
 	/**
 	 * The energy cost of using this <code>Ability</code>.
 	 */
-	public int energyCost;
+	private int energyCost;
 
 	/**
 	 * The delay in time before the <code>Ability</code> is performed after it
 	 * is selected.
 	 */
-	public int timeBefore;
+	private int timeBefore;
 
 	/**
 	 * The delay in using any other Abilities after the <code>Ability</code>
 	 * is performed.
 	 */
-	public int timeAfter;
+	private int timeAfter;
 
 	/**
-	 * Whether or not this <code>Ability</code> is a spell.
+	 * The types of abilities.
 	 */
-	public boolean spell;
-
+	public enum AbilityType (ATTACK, OFFENSIVE_SPELL, DEFENSIVE_SPELL)
+	
 	/**
-	 * Whether of not this <code>Ability</code> is a heal.
+	 * The type of this ability.
 	 */
-	public boolean heal;
+	private AbilityType type;
 
 	/**
 	 * The base damage of the weapon is multiplied by this value.
 	 */
-	public double weaponMultiplier;
+	private double weaponMultiplier;
 
 	/**
 	 * The base damage of the <code>Ability</code>. This is added to the
 	 * multiplied weapon damage to calculate the damage of the
 	 * <code>Ability</code>.
+	 * 
+	 * If it is a spell, it is pure damage done to the enemy.
+	 * 
+	 * If it is a heal, the user is healed by this amount.
 	 */
-	public int damage;
+	private int damage;
 
 	/**
 	 * This value is added to the user's ToMeleeHit to calculate the attack for
 	 * the use of this <code>Ability</code> only.
 	 */
-	public int temporaryBoostToMeleeHit;
+	private int temporaryBoostToMeleeHit;
 
 	/**
 	 * This value is added to the user's ToCast to calculate the attack for the
 	 * use of this <code>Ability</code> only.
 	 */
-	public int temporaryBoostToCast;
+	private int temporaryBoostToCast;
 
 	/**
 	 * This value is added to the user's ToCrit to calculate the attack for the
 	 * use of this <code>Ability</code> only.
 	 */
-	public int temporaryBoostToCrit;
+	private int temporaryBoostToCrit;
 
 	/**
-	 * The Buff is added to the user by the <code>Ability</code>.
+	 * These buffs are added to the user by the <code>Ability</code>.
 	 */
-	public Buff helpfulBuff;
+	private ArrayList<Buff> helpfulBuffs;
 
 	/**
 	 * This value is added to the target's ToBlock to calculate the attack for
@@ -107,9 +113,9 @@ public class Ability
 	public int temporaryDamageToResist;
 
 	/**
-	 * The Buff is added to the target by the <code>Ability</code>.
+	 * These Buffs are added to the target by the <code>Ability</code>.
 	 */
-	public Buff deBuff;
+	public ArrayList<Buff> deBuffs;
 
 	/**
 	 * The experience necessary to use the <code>Ability</code>.
@@ -122,12 +128,12 @@ public class Ability
 	public int goldCost;
 
 	public Ability(String id, String name, int manaCost, int energyCost,
-			int timeBefore, int timeAfter, boolean spell, boolean heal,
+			int timeBefore, int timeAfter, AbilityType type,
 			double weaponMultiplier, int damage, int temporaryBoostToMeleeHit,
 			int temporaryBoostToCast, int temporaryBoostToCrit,
-			Buff helpfulBuff, int temporaryDamageToBlock,
+			ArrayList<Buff> helpfulBuffs, int temporaryDamageToBlock,
 			int temporaryDamageToDodge, int temporaryDamageToSave,
-			int temporaryDamageToResist, Buff deBuff, int XPCost, int goldCost)
+			int temporaryDamageToResist, ArrayList<Buff> deBuffs, int XPCost, int goldCost)
 	{
 		this.id = id;
 		this.name = name;
@@ -135,18 +141,17 @@ public class Ability
 		this.energyCost = energyCost;
 		this.timeBefore = timeBefore;
 		this.timeAfter = timeAfter;
-		this.spell = spell;
-		this.heal = heal;
+		this.type = type;
 		this.weaponMultiplier = weaponMultiplier;
 		this.damage = damage;
 		this.temporaryBoostToMeleeHit = temporaryBoostToMeleeHit;
 		this.temporaryBoostToCast = temporaryBoostToCast;
-		this.helpfulBuff = helpfulBuff;
+		this.helpfulBuffs = helpfulBuffs;
 		this.temporaryDamageToBlock = temporaryDamageToBlock;
 		this.temporaryDamageToDodge = temporaryDamageToDodge;
 		this.temporaryDamageToSave = temporaryDamageToSave;
 		this.temporaryDamageToResist = temporaryDamageToResist;
-		this.deBuff = deBuff;
+		this.deBuffs = deBuffs;
 		this.XPCost = XPCost;
 		this.goldCost = goldCost;
 	}
@@ -173,8 +178,7 @@ public class Ability
 		s += "Name: " + name + "\n";
 		s += "Mana Cost: " + String.valueOf(manaCost) + "\n";
 		s += "Energy Cost: " + String.valueOf(energyCost) + "\n";
-		s += "Spell: " + String.valueOf(spell) + "\n";
-		s += "Heal: " + String.valueOf(heal) + "\n";
+		s += "AbilityType: " + type + "\n";
 		s += "Base Damage Multiplier: " + String.valueOf(weaponMultiplier)
 				+ "\n";
 		s += "Boost to Damage: " + String.valueOf(damage) + "\n";
@@ -199,4 +203,112 @@ public class Ability
 
 		return s;
 	}
+    /**
+     * @return Returns the damage.
+     */
+    public int getDamage() {
+        return damage;
+    }
+    /**
+     * @return Returns the energyCost.
+     */
+    public int getEnergyCost() {
+        return energyCost;
+    }
+    /**
+     * @return Returns the goldCost.
+     */
+    public int getGoldCost() {
+        return goldCost;
+    }
+    /**
+     * @return Returns the id.
+     */
+    public String getId() {
+        return id;
+    }
+    /**
+     * @return Returns the manaCost.
+     */
+    public int getManaCost() {
+        return manaCost;
+    }
+    /**
+     * @return Returns the name.
+     */
+    public String getName() {
+        return name;
+    }
+    /**
+     * @return Returns the temporaryBoostToCast.
+     */
+    public int getTemporaryBoostToCast() {
+        return temporaryBoostToCast;
+    }
+    /**
+     * @return Returns the temporaryBoostToCrit.
+     */
+    public int getTemporaryBoostToCrit() {
+        return temporaryBoostToCrit;
+    }
+    /**
+     * @return Returns the temporaryBoostToMeleeHit.
+     */
+    public int getTemporaryBoostToMeleeHit() {
+        return temporaryBoostToMeleeHit;
+    }
+    /**
+     * @return Returns the temporaryDamageToBlock.
+     */
+    public int getTemporaryDamageToBlock() {
+        return temporaryDamageToBlock;
+    }
+    /**
+     * @return Returns the temporaryDamageToDodge.
+     */
+    public int getTemporaryDamageToDodge() {
+        return temporaryDamageToDodge;
+    }
+    /**
+     * @return Returns the temporaryDamageToResist.
+     */
+    public int getTemporaryDamageToResist() {
+        return temporaryDamageToResist;
+    }
+    /**
+     * @return Returns the temporaryDamageToSave.
+     */
+    public int getTemporaryDamageToSave() {
+        return temporaryDamageToSave;
+    }
+    /**
+     * @return Returns the timeAfter.
+     */
+    public int getTimeAfter() {
+        return timeAfter;
+    }
+    /**
+     * @return Returns the timeBefore.
+     */
+    public int getTimeBefore() {
+        return timeBefore;
+    }
+    /**
+     * @return Returns the type.
+     */
+    public AbilityType getType() {
+        return type;
+    }
+    /**
+     * @return Returns the weaponMultiplier.
+     */
+    public double getWeaponMultiplier() {
+        return weaponMultiplier;
+    }
+    /**
+     * @return Returns the xPCost.
+     */
+    public int getXPCost() {
+        return XPCost;
+    }
 }
