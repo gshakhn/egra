@@ -40,11 +40,6 @@ public class Ability
 	private int timeAfter;
 
 	/**
-	 * The types of abilities.
-	 */
-	public enum AbilityType {ATTACK, OFFENSIVE_SPELL, DEFENSIVE_SPELL;}
-	
-	/**
 	 * The type of this ability.
 	 */
 	private AbilityType type;
@@ -95,7 +90,7 @@ public class Ability
 	public int temporaryDamageToBlock;
 
 	/**
-	 * This value is added to the target's ToMeleeHit to calculate the attack
+	 * This value is added to the targ et's ToMeleeHit to calculate the attack
 	 * for the use of this <code>Ability</code> only.
 	 */
 	public int temporaryDamageToDodge;
@@ -133,7 +128,8 @@ public class Ability
 			int temporaryBoostToCast, int temporaryBoostToCrit,
 			ArrayList<Buff> helpfulBuffs, int temporaryDamageToBlock,
 			int temporaryDamageToDodge, int temporaryDamageToSave,
-			int temporaryDamageToResist, ArrayList<Buff> deBuffs, int XPCost, int goldCost)
+			int temporaryDamageToResist, ArrayList<Buff> deBuffs, int XPCost,
+			int goldCost)
 	{
 		this.id = id;
 		this.name = name;
@@ -189,7 +185,8 @@ public class Ability
 		s += "Instant Boost to Crit: " + String.valueOf(temporaryBoostToCrit)
 				+ "\n";
 		for (int ind = 0; ind < helpfulBuffs.size(); ind++)
-			s += "Buff #" + ind +" to User: " + helpfulBuffs.get(ind).toString() + "\n";
+			s += "Buff #" + ind + " to User: "
+					+ helpfulBuffs.get(ind).toString() + "\n";
 		s += "Instant Damage to Dodge: "
 				+ String.valueOf(temporaryDamageToDodge) + "\n";
 		s += "Instant Damage to Block: "
@@ -199,118 +196,155 @@ public class Ability
 		s += "Instant Damage to Resist: "
 				+ String.valueOf(temporaryDamageToResist) + "\n";
 		for (int ind = 0; ind < deBuffs.size(); ind++)
-			s += "Buff #" + ind +" to Enemy: " + deBuffs.get(ind).toString() + "\n";
+			s += "Buff #" + ind + " to Enemy: " + deBuffs.get(ind).toString()
+					+ "\n";
 		s += "Needed XP to Get: " + String.valueOf(XPCost) + "\n";
 		s += "Gold Cost: " + String.valueOf(goldCost);
 
 		return s;
 	}
-    /**
-     * @return Returns the damage.
-     */
-    public int getDamage() {
-        return damage;
-    }
-    /**
-     * @return Returns the energyCost.
-     */
-    public int getEnergyCost() {
-        return energyCost;
-    }
-    /**
-     * @return Returns the goldCost.
-     */
-    public int getGoldCost() {
-        return goldCost;
-    }
-    /**
-     * @return Returns the id.
-     */
-    public String getId() {
-        return id;
-    }
-    /**
-     * @return Returns the manaCost.
-     */
-    public int getManaCost() {
-        return manaCost;
-    }
-    /**
-     * @return Returns the name.
-     */
-    public String getName() {
-        return name;
-    }
-    /**
-     * @return Returns the temporaryBoostToCast.
-     */
-    public int getTemporaryBoostToCast() {
-        return temporaryBoostToCast;
-    }
-    /**
-     * @return Returns the temporaryBoostToCrit.
-     */
-    public int getTemporaryBoostToCrit() {
-        return temporaryBoostToCrit;
-    }
-    /**
-     * @return Returns the temporaryBoostToMeleeHit.
-     */
-    public int getTemporaryBoostToMeleeHit() {
-        return temporaryBoostToMeleeHit;
-    }
-    /**
-     * @return Returns the temporaryDamageToBlock.
-     */
-    public int getTemporaryDamageToBlock() {
-        return temporaryDamageToBlock;
-    }
-    /**
-     * @return Returns the temporaryDamageToDodge.
-     */
-    public int getTemporaryDamageToDodge() {
-        return temporaryDamageToDodge;
-    }
-    /**
-     * @return Returns the temporaryDamageToResist.
-     */
-    public int getTemporaryDamageToResist() {
-        return temporaryDamageToResist;
-    }
-    /**
-     * @return Returns the temporaryDamageToSave.
-     */
-    public int getTemporaryDamageToSave() {
-        return temporaryDamageToSave;
-    }
-    /**
-     * @return Returns the timeAfter.
-     */
-    public int getTimeAfter() {
-        return timeAfter;
-    }
-    /**
-     * @return Returns the timeBefore.
-     */
-    public int getTimeBefore() {
-        return timeBefore;
-    }
-    /**
-     * @return Returns the type.
-     */
-    public AbilityType getType() {
-        return type;
-    }
-    /**
-     * @return Returns the weaponMultiplier.
-     */
-    public double getWeaponMultiplier() {
-        return weaponMultiplier;
-    }
-    /**
-     * @return Returns the xPCost.
-     */
-    public int getXPCost() {
-        return XPCost;
-    }
+
+	/**
+	 * @return Returns the damage.
+	 */
+	public int getDamage()
+	{
+		return damage;
+	}
+
+	/**
+	 * @return Returns the energyCost.
+	 */
+	public int getEnergyCost()
+	{
+		return energyCost;
+	}
+
+	/**
+	 * @return Returns the goldCost.
+	 */
+	public int getGoldCost()
+	{
+		return goldCost;
+	}
+
+	/**
+	 * @return Returns the id.
+	 */
+	public String getId()
+	{
+		return id;
+	}
+
+	/**
+	 * @return Returns the manaCost.
+	 */
+	public int getManaCost()
+	{
+		return manaCost;
+	}
+
+	/**
+	 * @return Returns the name.
+	 */
+	public String getName()
+	{
+		return name;
+	}
+
+	/**
+	 * @return Returns the temporaryBoostToCast.
+	 */
+	public int getTemporaryBoostToCast()
+	{
+		return temporaryBoostToCast;
+	}
+
+	/**
+	 * @return Returns the temporaryBoostToCrit.
+	 */
+	public int getTemporaryBoostToCrit()
+	{
+		return temporaryBoostToCrit;
+	}
+
+	/**
+	 * @return Returns the temporaryBoostToMeleeHit.
+	 */
+	public int getTemporaryBoostToMeleeHit()
+	{
+		return temporaryBoostToMeleeHit;
+	}
+
+	/**
+	 * @return Returns the temporaryDamageToBlock.
+	 */
+	public int getTemporaryDamageToBlock()
+	{
+		return temporaryDamageToBlock;
+	}
+
+	/**
+	 * @return Returns the temporaryDamageToDodge.
+	 */
+	public int getTemporaryDamageToDodge()
+	{
+		return temporaryDamageToDodge;
+	}
+
+	/**
+	 * @return Returns the temporaryDamageToResist.
+	 */
+	public int getTemporaryDamageToResist()
+	{
+		return temporaryDamageToResist;
+	}
+
+	/**
+	 * @return Returns the temporaryDamageToSave.
+	 */
+	public int getTemporaryDamageToSave()
+	{
+		return temporaryDamageToSave;
+	}
+
+	/**
+	 * @return Returns the timeAfter.
+	 */
+	public int getTimeAfter()
+	{
+		return timeAfter;
+	}
+
+	/**
+	 * @return Returns the timeBefore.
+	 */
+	public int getTimeBefore()
+	{
+		return timeBefore;
+	}
+
+	/**
+	 * @return Returns the type.
+	 */
+	public AbilityType getType()
+	{
+		return type;
+	}
+
+	/**
+	 * @return Returns the weaponMultiplier.
+	 */
+	public double getWeaponMultiplier()
+	{
+		return weaponMultiplier;
+	}
+
+	/**
+	 * @return Returns the xPCost.
+	 */
+	public int getXPCost()
+	{
+		return XPCost;
+	}
 }

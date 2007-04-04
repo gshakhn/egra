@@ -25,23 +25,22 @@ public class Buff
 	private int bonusToResist;
 
 	private int bonusToCrit;
-	
+
 	private int damagePerTick;
-	
+
 	private int timePerTick;
 
 	private Date creationTime;
-	
+
 	private Date expirationTime;
 
 	private int duration;
 
 	private String pictureFile;
 
-	public Buff(String id, String name, int bonusToMeleeHit,
-	        int bonusToDodge, int bonusToBlock,
-			int bonusToCast, int bonusToSave, int bonusToResist,
-			int bonusToCrit, int damagePerTick,
+	public Buff(String id, String name, int bonusToMeleeHit, int bonusToDodge,
+			int bonusToBlock, int bonusToCast, int bonusToSave,
+			int bonusToResist, int bonusToCrit, int damagePerTick,
 			int timePerTick, int duration, String pictureFile)
 	{
 		this.id = id;
@@ -54,7 +53,7 @@ public class Buff
 		this.bonusToSave = bonusToSave;
 		this.bonusToResist = bonusToResist;
 		this.bonusToCrit = bonusToCrit;
-		
+
 		this.damagePerTick = damagePerTick;
 		this.timePerTick = timePerTick;
 		this.duration = duration;
@@ -86,108 +85,136 @@ public class Buff
 
 		return s;
 	}
-	
+
 	public Buff createBuff()
 	{
-	    Buff b = new Buff(id, name, bonusToMeleeHit,
-		        bonusToDodge, bonusToBlock,
-				bonusToCast, bonusToSave, bonusToResist,
-				bonusToCrit, damagePerTick,
-				timePerTick, duration, pictureFile);
-	    
-	    b.creationTime = new Date();
-	    b.expirationTime = new Date(b.creationTime.getTime() + 1000 * duration);
-	    
-	    return b;
+		Buff b = new Buff(id, name, bonusToMeleeHit, bonusToDodge,
+				bonusToBlock, bonusToCast, bonusToSave, bonusToResist,
+				bonusToCrit, damagePerTick, timePerTick, duration, pictureFile);
+
+		b.creationTime = new Date();
+		b.expirationTime = new Date(b.creationTime.getTime() + 1000 * duration);
+
+		return b;
 	}
-    /**
-     * @return Returns the bonusToBlock.
-     */
-    public int getBonusToBlock() {
-        return bonusToBlock;
-    }
-    /**
-     * @return Returns the bonusToCast.
-     */
-    public int getBonusToCast() {
-        return bonusToCast;
-    }
-    /**
-     * @return Returns the bonusToCrit.
-     */
-    public int getBonusToCrit() {
-        return bonusToCrit;
-    }
-    /**
-     * @return Returns the bonusToDodge.
-     */
-    public int getBonusToDodge() {
-        return bonusToDodge;
-    }
-    /**
-     * @return Returns the bonusToMeleeHit.
-     */
-    public int getBonusToMeleeHit() {
-        return bonusToMeleeHit;
-    }
-    /**
-     * @return Returns the bonusToResist.
-     */
-    public int getBonusToResist() {
-        return bonusToResist;
-    }
-    /**
-     * @return Returns the bonusToSave.
-     */
-    public int getBonusToSave() {
-        return bonusToSave;
-    }
-    /**
-     * @return Returns the creationTime.
-     */
-    public Date getCreationTime() {
-        return creationTime;
-    }
-    /**
-     * @return Returns the damagePerTick.
-     */
-    public int getDamagePerTick() {
-        return damagePerTick;
-    }
-    /**
-     * @return Returns the duration.
-     */
-    public int getDuration() {
-        return duration;
-    }
-    /**
-     * @return Returns the expirationTime.
-     */
-    public Date getExpirationTime() {
-        return expirationTime;
-    }
-    /**
-     * @return Returns the id.
-     */
-    public String getId() {
-        return id;
-    }
-    /**
-     * @return Returns the name.
-     */
-    public String getName() {
-        return name;
-    }
-    /**
-     * @return Returns the pictureFile.
-     */
-    public String getPictureFile() {
-        return pictureFile;
-    }
-    /**
-     * @return Returns the timePerTick.
-     */
-    public int getTimePerTick() {
-        return timePerTick;
-    }
+
+	/**
+	 * @return Returns the bonusToBlock.
+	 */
+	public int getBonusToBlock()
+	{
+		return bonusToBlock;
+	}
+
+	/**
+	 * @return Returns the bonusToCast.
+	 */
+	public int getBonusToCast()
+	{
+		return bonusToCast;
+	}
+
+	/**
+	 * @return Returns the bonusToCrit.
+	 */
+	public int getBonusToCrit()
+	{
+		return bonusToCrit;
+	}
+
+	/**
+	 * @return Returns the bonusToDodge.
+	 */
+	public int getBonusToDodge()
+	{
+		return bonusToDodge;
+	}
+
+	/**
+	 * @return Returns the bonusToMeleeHit.
+	 */
+	public int getBonusToMeleeHit()
+	{
+		return bonusToMeleeHit;
+	}
+
+	/**
+	 * @return Returns the bonusToResist.
+	 */
+	public int getBonusToResist()
+	{
+		return bonusToResist;
+	}
+
+	/**
+	 * @return Returns the bonusToSave.
+	 */
+	public int getBonusToSave()
+	{
+		return bonusToSave;
+	}
+
+	/**
+	 * @return Returns the creationTime.
+	 */
+	public Date getCreationTime()
+	{
+		return creationTime;
+	}
+
+	/**
+	 * @return Returns the damagePerTick.
+	 */
+	public int getDamagePerTick()
+	{
+		return damagePerTick;
+	}
+
+	/**
+	 * @return Returns the duration.
+	 */
+	public int getDuration()
+	{
+		return duration;
+	}
+
+	/**
+	 * @return Returns the expirationTime.
+	 */
+	public Date getExpirationTime()
+	{
+		return expirationTime;
+	}
+
+	/**
+	 * @return Returns the id.
+	 */
+	public String getId()
+	{
+		return id;
+	}
+
+	/**
+	 * @return Returns the name.
+	 */
+	public String getName()
+	{
+		return name;
+	}
+
+	/**
+	 * @return Returns the pictureFile.
+	 */
+	public String getPictureFile()
+	{
+		return pictureFile;
+	}
+
+	/**
+	 * @return Returns the timePerTick.
+	 */
+	public int getTimePerTick()
+	{
+		return timePerTick;
+	}
 }

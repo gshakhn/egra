@@ -29,17 +29,7 @@ public abstract class Item
 	 */
 	public int cost;
 
-	/**
-	 * The type of Item. The types can be: 0 - Miscellenous Item 1 - Amulet 2 -
-	 * Boots 3 - Bracers 4 - Chest 5 - Gloves 6 - Goggles 7 - Hat 8 - Melee
-	 * Weapon 9 - Pants 10 - Ring 11 - Shield 12 - Shoulder 13 - Socks 14 - Belt
-	 * 15 - Earring
-	 */
-	public enum ItemType {MISC, AMULET, BOOTS, BRACERS, CHEST, GLOVES, GOGGLES,
-	        HAT, MELEE_WEAPON, PANTS, RING, SHIELD, SHOULDER, SOCKS,
-	        BELT, EARRING;}
-	
-	private ItemType type;
+	protected ItemType type;
 
 	public String toString()
 	{

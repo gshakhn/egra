@@ -129,38 +129,38 @@ public class ItemMap
 
 	public void add(Item i)
 	{
-		int type = i.type;
-		if (type == 0)
+		ItemType type = i.type;
+		if (type == ItemType.MISC)
 			miscItems.put(i.id, i);
-		else if (type == 1)
+		else if (type == ItemType.AMULET)
 			amulets.put(i.id, i);
-		else if (type == 2)
+		else if (type == ItemType.BOOTS)
 			boots.put(i.id, i);
-		else if (type == 3)
+		else if (type == ItemType.BRACERS)
 			bracers.put(i.id, i);
-		else if (type == 4)
+		else if (type == ItemType.CHEST)
 			chest.put(i.id, i);
-		else if (type == 5)
+		else if (type == ItemType.GLOVES)
 			gloves.put(i.id, i);
-		else if (type == 6)
+		else if (type == ItemType.GOGGLES)
 			goggles.put(i.id, i);
-		else if (type == 7)
+		else if (type == ItemType.HAT)
 			hats.put(i.id, i);
-		else if (type == 8)
+		else if (type == ItemType.MELEE_WEAPON)
 			meleeWeapons.put(i.id, i);
-		else if (type == 9)
+		else if (type == ItemType.PANTS)
 			pants.put(i.id, i);
-		else if (type == 10)
+		else if (type == ItemType.RING)
 			rings.put(i.id, i);
-		else if (type == 11)
+		else if (type == ItemType.SHIELD)
 			shields.put(i.id, i);
-		else if (type == 12)
+		else if (type == ItemType.SHOULDER)
 			shoulders.put(i.id, i);
-		else if (type == 13)
+		else if (type == ItemType.SOCKS)
 			socks.put(i.id, i);
-		else if (type == 14)
+		else if (type == ItemType.BELT)
 			belts.put(i.id, i);
-		else if (type == 15)
+		else if (type == ItemType.EARRING)
 			earrings.put(i.id, i);
 	}
 
