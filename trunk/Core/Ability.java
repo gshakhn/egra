@@ -153,7 +153,12 @@ public class Ability
 	}
 
 	/**
-	 * Returns a string identifying this unique Ability.
+	 * Returns a string identifying this Ability.
+	 * 
+	 * Format:
+	 * ID + " " + Name
+	 * 
+	 * @return The ID + name of this Ability.
 	 */
 	public String toString()
 	{
@@ -161,7 +166,7 @@ public class Ability
 	}
 
 	/**
-	 * Returns information about the ability to the client in a human-readable
+	 * Returns information about the Ability to the client in a human-readable
 	 * format.
 	 * 
 	 * @return Information about the <code>Ability</code>.

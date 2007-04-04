@@ -9,6 +9,8 @@ public class Buff
 {
 
 	private String id;
+	
+	private String uniqueID;
 
 	private String name;
 
@@ -59,13 +61,29 @@ public class Buff
 		this.duration = duration;
 
 		this.pictureFile = pictureFile;
+		
+		uniqueID = null;
 	}
 
+	/**
+	 * Returns a string identifying this Buff.
+	 * 
+	 * Format:
+	 * ID + " " + Name
+	 * 
+	 * @return The ID + name of this Buff.
+	 */
 	public String toString()
 	{
 		return String.valueOf(id) + " " + name;
 	}
 
+	/**
+	 * Returns information about the Buff to the client in a human-readable
+	 * format.
+	 * 
+	 * @return Information about the <code>Buff</code>.
+	 */
 	public String getInfo()
 	{
 		String s = "";
@@ -86,6 +104,11 @@ public class Buff
 		return s;
 	}
 
+	/**
+	 * Creates a specific instance of the <code>Buff</code>.
+	 * 
+	 * @return A specific instance of this <code>Buff</code>.
+	 */
 	public Buff createBuff()
 	{
 		Buff b = new Buff(id, name, bonusToMeleeHit, bonusToDodge,
@@ -94,6 +117,8 @@ public class Buff
 
 		b.creationTime = new Date();
 		b.expirationTime = new Date(b.creationTime.getTime() + 1000 * duration);
+		
+		b.uniqueID = "Buff-" + id + "-" + Database.nextID();
 
 		return b;
 	}
@@ -216,5 +241,13 @@ public class Buff
 	public int getTimePerTick()
 	{
 		return timePerTick;
+	}
+
+	/**
+	 * @return the uniqueID
+	 */
+	public String getUniqueID()
+	{
+		return uniqueID;
 	}
 }

@@ -20,6 +20,8 @@ public class Attack
 	}
 
 	/**
+	 * TODO!
+	 * 
 	 * @return The string that will be sent to the client.
 	 */
 	public String process()
