@@ -44,7 +44,7 @@ public class WorldCell
 		directions[2] = s;
 		directions[3] = w;
 
-		characters = new LinkedList();
+		characters = new LinkedList<Fighter>();
 	}
 
 	public void addCharacter(Fighter f)
@@ -75,8 +75,9 @@ public class WorldCell
 			if (f instanceof Monster)
 			{
 				Monster m = (Monster) (f);
-				if (!m.alive
-						&& (m.deathTime.getTime() - m.creationTime.getTime()) >= m.spawnTime)
+				if (!m.isAlive()
+						&& (m.getDeathTime().getTime() - m.getCreationTime()
+								.getTime()) >= m.getSpawnTime())
 				{
 					i.set(m.createMonster(this));
 				}

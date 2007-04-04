@@ -73,9 +73,11 @@ public class Player extends Fighter
 		myClass = playerClass;
 
 		myEquippedItems = new EquippableItem[NbrEQUIPMENTSLOTS];
-		for (int ind = 0; ind < NbrEQUIPMENTSLOTS; ind++)
-			myEquippedItems[ind] = (EquippableItem) (Database.getItem(ind + 1,
-					0));
+		/*
+		 * for (int ind = 0; ind < NbrEQUIPMENTSLOTS; ind++)
+		 * myEquippedItems[ind] = (EquippableItem) (Database.getItem(ind + 1,
+		 * 0));
+		 */
 
 		switch (myClass)
 		{
@@ -127,13 +129,13 @@ public class Player extends Fighter
 	public void addStats()
 	{
 		minDamage = 0;
-		minDamage = ((MeleeWeapon) (myEquippedItems[7])).minDamage;
+		minDamage = ((MeleeWeapon) (myEquippedItems[7])).getMinDamage();
 		if (myEquippedItems[10] instanceof MeleeWeapon)
-			minDamage += ((MeleeWeapon) (myEquippedItems[10])).minDamage;
+			minDamage += ((MeleeWeapon) (myEquippedItems[10])).getMinDamage();
 		maxDamage = 0;
-		maxDamage = ((MeleeWeapon) (myEquippedItems[7])).maxDamage;
+		maxDamage = ((MeleeWeapon) (myEquippedItems[7])).getMaxDamage();
 		if (myEquippedItems[10] instanceof MeleeWeapon)
-			maxDamage += ((MeleeWeapon) (myEquippedItems[10])).maxDamage;
+			maxDamage += ((MeleeWeapon) (myEquippedItems[10])).getMaxDamage();
 
 		meleeBoost = 0.0;
 		spellBoost = 0.0;

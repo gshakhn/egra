@@ -57,7 +57,7 @@ public abstract class Fighter
 
 	public Fighter()
 	{
-		myBuffs = new LinkedList();
+		myBuffs = new LinkedList<Buff>();
 	}
 
 	public void processBuffs()
