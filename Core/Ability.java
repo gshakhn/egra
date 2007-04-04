@@ -42,7 +42,7 @@ public class Ability
 	/**
 	 * The types of abilities.
 	 */
-	public enum AbilityType (ATTACK, OFFENSIVE_SPELL, DEFENSIVE_SPELL)
+	public enum AbilityType {ATTACK, OFFENSIVE_SPELL, DEFENSIVE_SPELL;}
 	
 	/**
 	 * The type of this ability.
@@ -188,7 +188,8 @@ public class Ability
 				+ "\n";
 		s += "Instant Boost to Crit: " + String.valueOf(temporaryBoostToCrit)
 				+ "\n";
-		s += "Buff to User: " + helpfulBuff.toString() + "\n";
+		for (int ind = 0; ind < helpfulBuffs.size(); ind++)
+			s += "Buff #" + ind +" to User: " + helpfulBuffs.get(ind).toString() + "\n";
 		s += "Instant Damage to Dodge: "
 				+ String.valueOf(temporaryDamageToDodge) + "\n";
 		s += "Instant Damage to Block: "
@@ -197,7 +198,8 @@ public class Ability
 				+ "\n";
 		s += "Instant Damage to Resist: "
 				+ String.valueOf(temporaryDamageToResist) + "\n";
-		s += "Buff to Enemy: " + deBuff.toString() + "\n";
+		for (int ind = 0; ind < deBuffs.size(); ind++)
+			s += "Buff #" + ind +" to Enemy: " + deBuffs.get(ind).toString() + "\n";
 		s += "Needed XP to Get: " + String.valueOf(XPCost) + "\n";
 		s += "Gold Cost: " + String.valueOf(goldCost);
 

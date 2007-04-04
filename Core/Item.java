@@ -35,9 +35,9 @@ public abstract class Item
 	 * Weapon 9 - Pants 10 - Ring 11 - Shield 12 - Shoulder 13 - Socks 14 - Belt
 	 * 15 - Earring
 	 */
-	public enum ItemType (MISC, AMULET, BOOTS, BRACERS, CHEST, GLOVES, GOGGLES,
+	public enum ItemType {MISC, AMULET, BOOTS, BRACERS, CHEST, GLOVES, GOGGLES,
 	        HAT, MELEE_WEAPON, PANTS, RING, SHIELD, SHOULDER, SOCKS,
-	        BELT, EARRING)
+	        BELT, EARRING;}
 	
 	private ItemType type;
 
