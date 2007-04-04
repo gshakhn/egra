@@ -11,26 +11,39 @@ public abstract class Item
 	 * The ID of this <code>Item</code>. Each <code>Item</code> has an ID,
 	 * but a specific instance of an <code>Item</code> has its own uniqueID.
 	 */
-	public String id;
+	protected String id;
 
 	/**
 	 * The unique ID of a specific instance of an <code>Item</code>. Defaults
 	 * to null when an <code>Item</code> is created.
 	 */
-	public String uniqueID;
+	protected String uniqueID;
 
 	/**
 	 * The name of this <code>Item</code> for the end user.
 	 */
-	public String name;
+	protected String name;
 
 	/**
 	 * The cost of this <code>Item</code> in monetary units.
 	 */
-	public int cost;
+	protected int cost;
 
+	/**
+	 * The type of this item.
+	 * 
+	 * @see ItemType
+	 */
 	protected ItemType type;
 
+	/**
+	 * Returns a string identifying this Item.
+	 * 
+	 * Format:
+	 * ID + " " + Name
+	 * 
+	 * @return The ID + name of this Item.
+	 */
 	public String toString()
 	{
 		return id + " " + name;
@@ -44,10 +57,34 @@ public abstract class Item
 	public Item createItem()
 	{
 		Item i = cloneItem();
-		i.uniqueID = String.valueOf(type) + "-" + String.valueOf(id) + "-"
-				+ String.valueOf(Database.nextID());
+		i.uniqueID = type + "-" + id + "-" + Database.nextID();
 		return i;
 	}
 
 	public abstract Item cloneItem();
+
+	public int getCost()
+	{
+		return cost;
+	}
+
+	public String getId()
+	{
+		return id;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public ItemType getType()
+	{
+		return type;
+	}
+
+	public String getUniqueID()
+	{
+		return uniqueID;
+	}
 }
