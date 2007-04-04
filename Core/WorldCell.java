@@ -75,7 +75,8 @@ public class WorldCell
 			if (f instanceof Monster)
 			{
 				Monster m = (Monster) (f);
-				if (!m.alive && currentTime - m.deathTime >= m.spawnTime)
+				if (!m.alive
+						&& (m.deathTime.getTime() - m.creationTime.getTime()) >= m.spawnTime)
 				{
 					i.set(m.createMonster(this));
 				}

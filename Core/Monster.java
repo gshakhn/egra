@@ -24,7 +24,9 @@ public class Monster extends Fighter
 
 	public boolean alive;
 
-	public Date spawnTime;
+	public int spawnTime;
+
+	public Date creationTime;
 
 	public Date deathTime;
 
@@ -144,8 +146,8 @@ public class Monster extends Fighter
 		currentCell = home;
 
 		alive = true;
-		
-		spawnTime = new Date();
+
+		creationTime = new Date();
 
 		return m;
 	}

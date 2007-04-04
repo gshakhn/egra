@@ -75,17 +75,17 @@ public abstract class Fighter
 		for (ListIterator i = myBuffs.listIterator(); i.hasNext();)
 		{
 			Buff b = (Buff) (i.next());
-			if (b.duration >= System.currentTimeMillis() - b.creationTime)
+			if (b.getCreationTime().after(b.getExpirationTime()))
 				i.remove();
 			else
 			{
-				totalToMeleeHit += b.bonusToMeleeHit;
-				totalToDodge += b.bonusToDodge;
-				totalToBlock += b.bonusToBlock;
-				totalToCast += b.bonusToCast;
-				totalToSave += b.bonusToSave;
-				totalToResist += b.bonusToResist;
-				totalToCrit += b.bonusToCrit;
+				totalToMeleeHit += b.getBonusToMeleeHit();
+				totalToDodge += b.getBonusToDodge();
+				totalToBlock += b.getBonusToBlock();
+				totalToCast += b.getBonusToCast();
+				totalToSave += b.getBonusToSave();
+				totalToResist += b.getBonusToResist();
+				totalToCrit += b.getBonusToCrit();
 			}
 		}
 	}

@@ -21,7 +21,7 @@ public class MeleeWeapon extends EquippableItem
 
 	public int chanceForExtra;
 
-	public MeleeWeapon(String id, int type, String name, int minDamage,
+	public MeleeWeapon(String id, ItemType type, String name, int minDamage,
 			int maxDamage, int currentHealth, int maxHealth, int cost,
 			int hand, int melee, int block, int dodge, int cast, int save,
 			int resist, int crit, double meleeBonus, double spell,
