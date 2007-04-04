@@ -6,25 +6,36 @@
 public class MeleeWeapon extends EquippableItem
 {
 
-	public int hand;
+	/**
+	 * The hand the weapon is in.
+	 */
+	private WeaponHand hand;
 
-	// 1 = either
-	// 2 = main
-	// 3 = off
-	// 4 = both
+	/**
+	 * The minimum base damage the weapon does.
+	 */
+	private int minDamage;
 
-	public int minDamage;
+	/**
+	 * The maxium base damage the weapon does.
+	 */
+	private int maxDamage;
 
-	public int maxDamage;
+	/**
+	 * An extra ability the weapon automatically performs. e.g. Bleeding attack
+	 * to give bleeding debuff.
+	 */
+	private String extraAbility;
 
-	public String extraAbility;
-
-	public int chanceForExtra;
+	/**
+	 * Chance the weapon has in attacking multiple times.
+	 */
+	private int chanceForExtra;
 
 	public MeleeWeapon(String id, ItemType type, String name, int minDamage,
 			int maxDamage, int currentHealth, int maxHealth, int cost,
-			int hand, int melee, int block, int dodge, int cast, int save,
-			int resist, int crit, double meleeBonus, double spell,
+			WeaponHand hand, int melee, int block, int dodge, int cast,
+			int save, int resist, int crit, double meleeBonus, double spell,
 			String extraAbility, int chanceForExtra)
 	{
 		this.name = name;
@@ -52,6 +63,12 @@ public class MeleeWeapon extends EquippableItem
 		this.chanceForExtra = chanceForExtra;
 	}
 
+	/**
+	 * This returns an <code>Item</code> that has the same attributes as this
+	 * <code>Item</code>, but a generic uniqueID of null.
+	 * 
+	 * @see Item
+	 */
 	public Item cloneItem()
 	{
 		return new MeleeWeapon(id, type, name, minDamage, maxDamage,
@@ -59,5 +76,45 @@ public class MeleeWeapon extends EquippableItem
 				boostToBlock, boostToDodge, boostToCast, boostToSave,
 				boostToResist, boostToCrit, boostMeleeDamage, boostSpellDamage,
 				extraAbility, chanceForExtra);
+	}
+
+	/**
+	 * @return the chanceForExtra
+	 */
+	public int getChanceForExtra()
+	{
+		return chanceForExtra;
+	}
+
+	/**
+	 * @return the extraAbility
+	 */
+	public String getExtraAbility()
+	{
+		return extraAbility;
+	}
+
+	/**
+	 * @return the hand
+	 */
+	public WeaponHand getHand()
+	{
+		return hand;
+	}
+
+	/**
+	 * @return the maxDamage
+	 */
+	public int getMaxDamage()
+	{
+		return maxDamage;
+	}
+
+	/**
+	 * @return the minDamage
+	 */
+	public int getMinDamage()
+	{
+		return minDamage;
 	}
 }

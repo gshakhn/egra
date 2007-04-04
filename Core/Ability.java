@@ -87,40 +87,40 @@ public class Ability
 	 * This value is added to the target's ToBlock to calculate the attack for
 	 * the use of this <code>Ability</code> only.
 	 */
-	public int temporaryDamageToBlock;
+	private int temporaryDamageToBlock;
 
 	/**
 	 * This value is added to the targ et's ToMeleeHit to calculate the attack
 	 * for the use of this <code>Ability</code> only.
 	 */
-	public int temporaryDamageToDodge;
+	private int temporaryDamageToDodge;
 
 	/**
 	 * This value is added to the target's ToDodge to calculate the attack for
 	 * the use of this <code>Ability</code> only.
 	 */
-	public int temporaryDamageToSave;
+	private int temporaryDamageToSave;
 
 	/**
 	 * This value is added to the target's ToSave to calculate the attack for
 	 * the use of this <code>Ability</code> only.
 	 */
-	public int temporaryDamageToResist;
+	private int temporaryDamageToResist;
 
 	/**
 	 * These Buffs are added to the target by the <code>Ability</code>.
 	 */
-	public ArrayList<Buff> deBuffs;
+	private ArrayList<Buff> deBuffs;
 
 	/**
 	 * The experience necessary to use the <code>Ability</code>.
 	 */
-	public int XPCost;
+	private int XPCost;
 
 	/**
 	 * The cost to purchase the <code>Ability</code> in monetary units.
 	 */
-	public int goldCost;
+	private int goldCost;
 
 	public Ability(String id, String name, int manaCost, int energyCost,
 			int timeBefore, int timeAfter, AbilityType type,
@@ -155,8 +155,7 @@ public class Ability
 	/**
 	 * Returns a string identifying this Ability.
 	 * 
-	 * Format:
-	 * ID + " " + Name
+	 * Format: ID + " " + Name
 	 * 
 	 * @return The ID + name of this Ability.
 	 */

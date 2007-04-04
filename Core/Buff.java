@@ -8,24 +8,58 @@ import java.util.Date;
 public class Buff
 {
 
+	/**
+	 * The ID of this <code>Buff</code>. Each <code>Buff</code> has an ID,
+	 * but a specific instance of an <code>Buff</code> has its own uniqueID.
+	 */
 	private String id;
-	
+
+	/**
+	 * The unique ID of a specific instance of an <code>Buff</code>. Defaults
+	 * to null when an <code>Buff</code> is created with the constructor.
+	 */
 	private String uniqueID;
 
+	/**
+	 * The name of this <code>Buff</code> for the end user.
+	 */
 	private String name;
 
+	/**
+	 * The increase ToMeleeHit this <code>Buff</code> gives the affected
+	 * fighter.
+	 */
 	private int bonusToMeleeHit;
 
+	/**
+	 * The increase ToDodge this <code>Buff</code> gives the affected fighter.
+	 */
 	private int bonusToDodge;
 
+	/**
+	 * The increase ToBlock this <code>Buff</code> gives the affected fighter.
+	 */
 	private int bonusToBlock;
 
+	/**
+	 * The increase ToCast this <code>Buff</code> gives the affected fighter.
+	 */
 	private int bonusToCast;
 
+	/**
+	 * The increase ToSave this <code>Buff</code> gives the affected fighter.
+	 */
 	private int bonusToSave;
 
+	/**
+	 * The increase ToResist this <code>Buff</code> gives the affected
+	 * fighter.
+	 */
 	private int bonusToResist;
 
+	/**
+	 * The increase ToCrit this <code>Buff</code> gives the affected fighter.
+	 */
 	private int bonusToCrit;
 
 	private int damagePerTick;
@@ -61,15 +95,14 @@ public class Buff
 		this.duration = duration;
 
 		this.pictureFile = pictureFile;
-		
+
 		uniqueID = null;
 	}
 
 	/**
 	 * Returns a string identifying this Buff.
 	 * 
-	 * Format:
-	 * ID + " " + Name
+	 * Format: ID + " " + Name
 	 * 
 	 * @return The ID + name of this Buff.
 	 */
@@ -117,7 +150,7 @@ public class Buff
 
 		b.creationTime = new Date();
 		b.expirationTime = new Date(b.creationTime.getTime() + 1000 * duration);
-		
+
 		b.uniqueID = "Buff-" + id + "-" + Database.nextID();
 
 		return b;

@@ -3,5 +3,18 @@
  * DEFENSIVE_SPELL
  */
 public enum AbilityType {
-	ATTACK, OFFENSIVE_SPELL, DEFENSIVE_SPELL;
+	/**
+	 * A melee attack.
+	 */
+	ATTACK,
+
+	/**
+	 * An offensive spell. e.g. Fireball
+	 */
+	OFFENSIVE_SPELL,
+
+	/**
+	 * A defensive spell. e.g. Heal
+	 */
+	DEFENSIVE_SPELL;
 }

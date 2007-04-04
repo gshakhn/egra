@@ -8,37 +8,89 @@ import java.util.Date;
  */
 public class Monster extends Fighter
 {
-	public String id;
+	/**
+	 * The ID of this <code>Monster</code>. Each <code>Monster</code> has
+	 * an ID, but a specific instance of an <code>Monster</code> has its own
+	 * uniqueID.
+	 */
+	private String id;
 
-	public String name;
+	/**
+	 * The unique ID of a specific instance of an <code>Monster</code>.
+	 * Defaults to null when an <code>Monster</code> is created with the
+	 * constructor.
+	 */
+	private String uniqueID;
 
-	public String attack;
+	/**
+	 * The name of this <code>Monster</code> for the end user.
+	 */
+	private String name;
 
-	public WorldCell homeCell;
+	/**
+	 * The ID of the Ability the monster uses.
+	 */
+	private String attack;
 
-	public String[] drops;
+	/**
+	 * The monster's original cell.
+	 */
+	private WorldCell homeCell;
 
-	public int[] chanceToDrop;
+	/**
+	 * The IDs of the Items the Monster can drop.
+	 */
+	private String[] drops;
 
-	public String uniqueID;
+	/**
+	 * The chance that the item is actually dropped. x / 1000.
+	 */
+	private int[] chanceToDrop;
 
-	public boolean alive;
+	/**
+	 * Is the Monster alive or not?
+	 */
+	private boolean alive;
 
-	public int spawnTime;
+	/**
+	 * The time between the Monster dying and spawning again.
+	 */
+	private int spawnTime;
 
-	public Date creationTime;
+	/**
+	 * The time the Monster was created.
+	 */
+	private Date creationTime;
 
-	public Date deathTime;
+	/**
+	 * The time the Monster died.
+	 */
+	private Date deathTime;
 
-	public int chanceToMove;
+	/**
+	 * The chance that the Monster will move to another cell. x / 1000.
+	 */
+	private int chanceToMove;
 
-	public long lastMoved;
+	/**
+	 * The time the Monster last moved.
+	 */
+	private Date lastMoved;
 
-	public int timeBetweenMoving;
+	/**
+	 * The time interval between which the Monster chooses to move or not.
+	 */
+	private int timeBetweenMoving;
 
-	public int level;
+	/**
+	 * The level of the Monster.
+	 */
+	private int level;
 
-	public String pictureFile;
+	/**
+	 * The file name of the image of the Monster.
+	 */
+	private String pictureFile;
 
 	public Monster(String id, String name, String attack, int minDamage,
 			int maxDamage, int toMeleeHit, int toDodge, int toBlock,
@@ -66,7 +118,6 @@ public class Monster extends Fighter
 		this.chanceToDrop = chanceToDrop;
 
 		this.chanceToMove = chanceToMove;
-		lastMoved = 0;
 		this.timeBetweenMoving = timeBeforeMoving;
 
 		myMaxHealth = maxHealth;
@@ -83,6 +134,9 @@ public class Monster extends Fighter
 		myCurrentHealth += (int) ((double) myMaxHealth * 0.1);
 	}
 
+	/**
+	 * @return The ID's of the Items this monster drops.
+	 */
 	public String[] drop()
 	{
 		String[] whatDrops = new String[drops.length];
@@ -109,7 +163,7 @@ public class Monster extends Fighter
 		}
 
 		// Possible movement
-		if (System.currentTimeMillis() - lastMoved > timeBetweenMoving
+		if (System.currentTimeMillis() - lastMoved.getTime() > timeBetweenMoving
 				&& (int) (Math.random() * 100) + 1 > chanceToMove)
 		{
 			WorldCell[] directions = currentCell.directions;
@@ -123,12 +177,17 @@ public class Monster extends Fighter
 			currentCell = directions[direction];
 			currentCell.addCharacter(this);
 
-			lastMoved = System.currentTimeMillis();
+			lastMoved = new Date();
 		}
 
 		processBuffs();
 	}
 
+	/**
+	 * Creates a specific instance of the <code>Monster</code>.
+	 * 
+	 * @return A specific instance of this <code>Monster</code>.
+	 */
 	public Monster createMonster(WorldCell home)
 	{
 		Monster m = new Monster(id, name, attack, minDamage, maxDamage,
@@ -148,15 +207,29 @@ public class Monster extends Fighter
 		alive = true;
 
 		creationTime = new Date();
+		lastMoved = new Date();
 
 		return m;
 	}
 
+	/**
+	 * Returns a string identifying this Monster.
+	 * 
+	 * Format: ID + " " + Name
+	 * 
+	 * @return The ID + name of this Monster.
+	 */
 	public String toString()
 	{
 		return String.valueOf(id) + " " + name;
 	}
 
+	/**
+	 * Returns information about the Monster to the client in a human-readable
+	 * format.
+	 * 
+	 * @return Information about the <code>Monster</code>.
+	 */
 	public String getInfo()
 	{
 		String s = "";
@@ -165,5 +238,133 @@ public class Monster extends Fighter
 		s += "Ability: " + attack.toString() + "\n";
 
 		return s;
+	}
+
+	/**
+	 * @return the alive
+	 */
+	public boolean isAlive()
+	{
+		return alive;
+	}
+
+	/**
+	 * @return the attack
+	 */
+	public String getAttack()
+	{
+		return attack;
+	}
+
+	/**
+	 * @return the chanceToDrop
+	 */
+	public int[] getChanceToDrop()
+	{
+		return chanceToDrop;
+	}
+
+	/**
+	 * @return the chanceToMove
+	 */
+	public int getChanceToMove()
+	{
+		return chanceToMove;
+	}
+
+	/**
+	 * @return the creationTime
+	 */
+	public Date getCreationTime()
+	{
+		return creationTime;
+	}
+
+	/**
+	 * @return the deathTime
+	 */
+	public Date getDeathTime()
+	{
+		return deathTime;
+	}
+
+	/**
+	 * @return the drops
+	 */
+	public String[] getDrops()
+	{
+		return drops;
+	}
+
+	/**
+	 * @return the homeCell
+	 */
+	public WorldCell getHomeCell()
+	{
+		return homeCell;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public String getId()
+	{
+		return id;
+	}
+
+	/**
+	 * @return the lastMoved
+	 */
+	public Date getLastMoved()
+	{
+		return lastMoved;
+	}
+
+	/**
+	 * @return the level
+	 */
+	public int getLevel()
+	{
+		return level;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName()
+	{
+		return name;
+	}
+
+	/**
+	 * @return the pictureFile
+	 */
+	public String getPictureFile()
+	{
+		return pictureFile;
+	}
+
+	/**
+	 * @return the spawnTime
+	 */
+	public int getSpawnTime()
+	{
+		return spawnTime;
+	}
+
+	/**
+	 * @return the timeBetweenMoving
+	 */
+	public int getTimeBetweenMoving()
+	{
+		return timeBetweenMoving;
+	}
+
+	/**
+	 * @return the uniqueID
+	 */
+	public String getUniqueID()
+	{
+		return uniqueID;
 	}
 }

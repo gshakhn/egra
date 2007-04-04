@@ -15,7 +15,7 @@ public abstract class Item
 
 	/**
 	 * The unique ID of a specific instance of an <code>Item</code>. Defaults
-	 * to null when an <code>Item</code> is created.
+	 * to null when an <code>Item</code> is created with the constructor.
 	 */
 	protected String uniqueID;
 
@@ -39,8 +39,7 @@ public abstract class Item
 	/**
 	 * Returns a string identifying this Item.
 	 * 
-	 * Format:
-	 * ID + " " + Name
+	 * Format: ID + " " + Name
 	 * 
 	 * @return The ID + name of this Item.
 	 */
@@ -61,30 +60,52 @@ public abstract class Item
 		return i;
 	}
 
+	/**
+	 * This returns an <code>Item</code> that has the same attributes as this
+	 * <code>Item</code>, but a generic uniqueID of null.
+	 * 
+	 * @see Item
+	 */
 	public abstract Item cloneItem();
 
+	/**
+	 * @return the cost
+	 */
 	public int getCost()
 	{
 		return cost;
 	}
 
+	/**
+	 * @return the id
+	 */
 	public String getId()
 	{
 		return id;
 	}
 
+	/**
+	 * @return the name
+	 */
 	public String getName()
 	{
 		return name;
 	}
 
+	/**
+	 * @return the type
+	 */
 	public ItemType getType()
 	{
 		return type;
 	}
 
+	/**
+	 * @return the uniqueID
+	 */
 	public String getUniqueID()
 	{
 		return uniqueID;
 	}
+
 }
