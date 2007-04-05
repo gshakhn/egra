@@ -6,97 +6,92 @@ import java.util.Date;
  * @author George Shakhnazaryan
  * 
  */
-public class Monster extends Fighter
+public abstract class Monster extends Fighter
 {
 	/**
 	 * The ID of this <code>Monster</code>. Each <code>Monster</code> has
 	 * an ID, but a specific instance of an <code>Monster</code> has its own
 	 * uniqueID.
 	 */
-	private String id;
+	protected String id;
 
 	/**
 	 * The unique ID of a specific instance of an <code>Monster</code>.
 	 * Defaults to null when an <code>Monster</code> is created with the
 	 * constructor.
 	 */
-	private String uniqueID;
+	protected String uniqueID;
 
 	/**
 	 * The name of this <code>Monster</code> for the end user.
 	 */
-	private String name;
+	protected String name;
 
 	/**
 	 * The ID of the Ability the monster uses.
 	 */
-	private String attack;
+	protected String attack;
 
 	/**
 	 * The monster's original cell.
 	 */
-	private WorldCell homeCell;
+	protected WorldCell homeCell;
 
 	/**
 	 * The IDs of the Items the Monster can drop.
 	 */
-	private String[] drops;
+	protected String[] drops;
 
 	/**
 	 * The chance that the item is actually dropped. x / 1000.
 	 */
-	private int[] chanceToDrop;
+	protected int[] chanceToDrop;
 
 	/**
 	 * Is the Monster alive or not?
 	 */
-	private boolean alive;
-
-	/**
-	 * The time between the Monster dying and spawning again.
-	 */
-	private int spawnTime;
+	protected boolean alive;
 
 	/**
 	 * The time the Monster was created.
 	 */
-	private Date creationTime;
+	protected Date creationTime;
 
 	/**
 	 * The time the Monster died.
 	 */
-	private Date deathTime;
+	protected Date deathTime;
 
 	/**
 	 * The chance that the Monster will move to another cell. x / 1000.
 	 */
-	private int chanceToMove;
+	protected int chanceToMove;
 
 	/**
 	 * The time the Monster last moved.
 	 */
-	private Date lastMoved;
+	protected Date lastMoved;
 
 	/**
 	 * The time interval between which the Monster chooses to move or not.
 	 */
-	private int timeBetweenMoving;
+	protected int timeBetweenMoving;
 
 	/**
 	 * The level of the Monster.
 	 */
-	private int level;
+	protected int level;
 
 	/**
 	 * The file name of the image of the Monster.
 	 */
-	private String pictureFile;
+	protected String pictureFile;
 
 	public Monster(String id, String name, String attack, int minDamage,
 			int maxDamage, int toMeleeHit, int toDodge, int toBlock,
 			int toCast, int toSave, int toResist, int toCrit, String[] drops,
 			int[] chanceToDrop, int maxHealth, int chanceToMove,
-			int timeBeforeMoving, int level, String pictureFile)
+			int timeBetweenMoving, int level, String pictureFile)
 	{
 		super();
 
@@ -118,7 +113,7 @@ public class Monster extends Fighter
 		this.chanceToDrop = chanceToDrop;
 
 		this.chanceToMove = chanceToMove;
-		this.timeBetweenMoving = timeBeforeMoving;
+		this.timeBetweenMoving = timeBetweenMoving;
 
 		myMaxHealth = maxHealth;
 
@@ -161,41 +156,52 @@ public class Monster extends Fighter
 			deathTime = new Date();
 			alive = false;
 		}
-
-		// Possible movement
-		if (System.currentTimeMillis() - lastMoved.getTime() > timeBetweenMoving
-				&& (int) (Math.random() * 100) + 1 > chanceToMove)
+		else
 		{
-			WorldCell[] directions = currentCell.directions;
-			int direction;
-			do
+
+			reproduce();
+
+			// Possible movement
+			if (System.currentTimeMillis() - lastMoved.getTime() > timeBetweenMoving
+					&& (int) (Math.random() * 1000) + 1 > chanceToMove)
 			{
-				direction = (int) (Math.random() * 4);
-			} while (directions[direction] != null);
+				WorldCell[] directions = currentCell.directions;
+				int direction;
+				do
+				{
+					direction = (int) (Math.random() * 4);
+				} while (directions[direction] != null);
 
-			currentCell.removeCharacter(this);
-			currentCell = directions[direction];
-			currentCell.addCharacter(this);
+				currentCell.removeCharacter(this);
+				currentCell = directions[direction];
+				currentCell.addCharacter(this);
 
-			lastMoved = new Date();
+				lastMoved = new Date();
+			}
+
+			processBuffs();
 		}
-
-		processBuffs();
 	}
+
+	/**
+	 * Checks if the monster should reproduce and reproduces if yes.
+	 */
+	protected abstract void reproduce();
 
 	/**
 	 * Creates a specific instance of the <code>Monster</code>.
 	 * 
 	 * @return A specific instance of this <code>Monster</code>.
 	 */
-	public Monster createMonster(WorldCell home)
-	{
-		Monster m = new Monster(id, name, attack, minDamage, maxDamage,
-				totalToMeleeHit, totalToDodge, totalToBlock, totalToCast,
-				totalToSave, totalToResist, totalToCrit, drops, chanceToDrop,
-				myMaxHealth, chanceToMove, timeBetweenMoving, level,
-				pictureFile);
+	public abstract Monster createMonster(WorldCell home);
 
+	/**
+	 * Creates a specific instance of the <code>Monster</code>.
+	 * 
+	 * @return A specific instance of this <code>Monster</code>.
+	 */
+	public Monster createMonster(WorldCell home, Monster m)
+	{
 		m.myCurrentHealth = myMaxHealth;
 
 		m.uniqueID = "M-" + String.valueOf(id) + "-"
@@ -342,14 +348,6 @@ public class Monster extends Fighter
 	public String getPictureFile()
 	{
 		return pictureFile;
-	}
-
-	/**
-	 * @return the spawnTime
-	 */
-	public int getSpawnTime()
-	{
-		return spawnTime;
 	}
 
 	/**

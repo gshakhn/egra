@@ -3,7 +3,7 @@
  * 
  * @author George Shakhnazaryan
  */
-public class Attack
+public abstract class Attack
 {
 
 	public Fighter attacker;
@@ -20,12 +20,7 @@ public class Attack
 	}
 
 	/**
-	 * TODO!
-	 * 
 	 * @return The string that will be sent to the client.
 	 */
-	public String process()
-	{
-		return null;
-	}
+	public abstract String process();
 }

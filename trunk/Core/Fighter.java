@@ -9,51 +9,51 @@ import java.util.ListIterator;
 public abstract class Fighter
 {
 
-	public int totalToMeleeHit;
+	protected int totalToMeleeHit;
 
-	public int totalToDodge;
+	protected int totalToDodge;
 
-	public int totalToBlock;
+	protected int totalToBlock;
 
-	public int totalToCast;
+	protected int totalToCast;
 
-	public int totalToSave;
+	protected int totalToSave;
 
-	public int totalToResist;
+	protected int totalToResist;
 
-	public int totalToCrit;
+	protected int totalToCrit;
 
-	public int baseToMeleeHit;
+	protected int baseToMeleeHit;
 
-	public int baseToDodge;
+	protected int baseToDodge;
 
-	public int baseToBlock;
+	protected int baseToBlock;
 
-	public int baseToCast;
+	protected int baseToCast;
 
-	public int baseToSave;
+	protected int baseToSave;
 
-	public int baseToResist;
+	protected int baseToResist;
 
-	public int baseToCrit;
+	protected int baseToCrit;
 
-	public int minDamage;
+	protected int minDamage;
 
-	public int maxDamage;
+	protected int maxDamage;
 
-	public double meleeBoost;
+	protected double meleeBoost;
 
-	public double spellBoost;
+	protected double spellBoost;
 
-	public int myMaxHealth;
+	protected int myMaxHealth;
 
-	public int myCurrentHealth;
+	protected int myCurrentHealth;
 
-	public WorldCell currentCell;
+	protected WorldCell currentCell;
 
-	public int timeBeforeAttack;
+	protected int timeBeforeAttack;
 
-	public LinkedList<Buff> myBuffs;
+	protected LinkedList<Buff> myBuffs;
 
 	public Fighter()
 	{
@@ -91,4 +91,188 @@ public abstract class Fighter
 	public abstract void regen();
 
 	public abstract void process();
+
+	/**
+	 * @return the baseToBlock
+	 */
+	public int getBaseToBlock()
+	{
+		return baseToBlock;
+	}
+
+	/**
+	 * @return the baseToCast
+	 */
+	public int getBaseToCast()
+	{
+		return baseToCast;
+	}
+
+	/**
+	 * @return the baseToCrit
+	 */
+	public int getBaseToCrit()
+	{
+		return baseToCrit;
+	}
+
+	/**
+	 * @return the baseToDodge
+	 */
+	public int getBaseToDodge()
+	{
+		return baseToDodge;
+	}
+
+	/**
+	 * @return the baseToMeleeHit
+	 */
+	public int getBaseToMeleeHit()
+	{
+		return baseToMeleeHit;
+	}
+
+	/**
+	 * @return the baseToResist
+	 */
+	public int getBaseToResist()
+	{
+		return baseToResist;
+	}
+
+	/**
+	 * @return the baseToSave
+	 */
+	public int getBaseToSave()
+	{
+		return baseToSave;
+	}
+
+	/**
+	 * @return the currentCell
+	 */
+	public WorldCell getCurrentCell()
+	{
+		return currentCell;
+	}
+
+	/**
+	 * @return the maxDamage
+	 */
+	public int getMaxDamage()
+	{
+		return maxDamage;
+	}
+
+	/**
+	 * @return the meleeBoost
+	 */
+	public double getMeleeBoost()
+	{
+		return meleeBoost;
+	}
+
+	/**
+	 * @return the minDamage
+	 */
+	public int getMinDamage()
+	{
+		return minDamage;
+	}
+
+	/**
+	 * @return the myBuffs
+	 */
+	public LinkedList<Buff> getMyBuffs()
+	{
+		return myBuffs;
+	}
+
+	/**
+	 * @return the myCurrentHealth
+	 */
+	public int getMyCurrentHealth()
+	{
+		return myCurrentHealth;
+	}
+
+	/**
+	 * @return the myMaxHealth
+	 */
+	public int getMyMaxHealth()
+	{
+		return myMaxHealth;
+	}
+
+	/**
+	 * @return the spellBoost
+	 */
+	public double getSpellBoost()
+	{
+		return spellBoost;
+	}
+
+	/**
+	 * @return the timeBeforeAttack
+	 */
+	public int getTimeBeforeAttack()
+	{
+		return timeBeforeAttack;
+	}
+
+	/**
+	 * @return the totalToBlock
+	 */
+	public int getTotalToBlock()
+	{
+		return totalToBlock;
+	}
+
+	/**
+	 * @return the totalToCast
+	 */
+	public int getTotalToCast()
+	{
+		return totalToCast;
+	}
+
+	/**
+	 * @return the totalToCrit
+	 */
+	public int getTotalToCrit()
+	{
+		return totalToCrit;
+	}
+
+	/**
+	 * @return the totalToDodge
+	 */
+	public int getTotalToDodge()
+	{
+		return totalToDodge;
+	}
+
+	/**
+	 * @return the totalToMeleeHit
+	 */
+	public int getTotalToMeleeHit()
+	{
+		return totalToMeleeHit;
+	}
+
+	/**
+	 * @return the totalToResist
+	 */
+	public int getTotalToResist()
+	{
+		return totalToResist;
+	}
+
+	/**
+	 * @return the totalToSave
+	 */
+	public int getTotalToSave()
+	{
+		return totalToSave;
+	}
 }

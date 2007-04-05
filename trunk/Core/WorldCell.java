@@ -72,16 +72,6 @@ public class WorldCell
 		for (ListIterator<Fighter> i = characters.listIterator(); i.hasNext();)
 		{
 			Fighter f = (Fighter) (i.next());
-			if (f instanceof Monster)
-			{
-				Monster m = (Monster) (f);
-				if (!m.isAlive()
-						&& (m.getDeathTime().getTime() - m.getCreationTime()
-								.getTime()) >= m.getSpawnTime())
-				{
-					i.set(m.createMonster(this));
-				}
-			}
 
 			f.process();
 		}
