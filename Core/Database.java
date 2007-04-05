@@ -67,92 +67,100 @@ public class Database
 
 	private static void initializeAmulets()
 	{
-		items[ItemType.AMULET.num()][0] = new Armor("Amulet-0", ItemType.AMULET, "None", -1, -1, 0,
-				0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.AMULET.num()][0] = new Armor("Amulet-0",
+				ItemType.AMULET, "None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0,
+				0.0);
 	}
 
 	private static void initializeBoots()
 	{
-		items[ItemType.BOOTS.num()][0] = new Armor("Boots-0", ItemType.BOOTS, "None", -1, -1, 0,
-				0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.BOOTS.num()][0] = new Armor("Boots-0", ItemType.BOOTS,
+				"None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
 	}
 
 	private static void initializeBracers()
 	{
-		items[ItemType.BRACERS.num()][0] = new Armor("Bracers-0", ItemType.BRACERS, "None", -1, -1,
-				0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.BRACERS.num()][0] = new Armor("Bracers-0",
+				ItemType.BRACERS, "None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0,
+				0.0);
 	}
 
 	private static void initializeChest()
 	{
-		items[ItemType.CHEST.num()][0] = new Armor("Chest-0", ItemType.CHEST, "Cloth Shirt", 10,
-				10, 5, 0, 1, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.CHEST.num()][0] = new Armor("Chest-0", ItemType.CHEST,
+				"Cloth Shirt", 10, 10, 5, 0, 1, 0, 0, 0, 0, 0, 0.0, 0.0);
 	}
 
 	private static void initializeGloves()
 	{
-		items[ItemType.GLOVES.num()][0] = new Armor("Gloves-0", ItemType.GLOVES, "None", -1, -1, 0,
-				0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.GLOVES.num()][0] = new Armor("Gloves-0",
+				ItemType.GLOVES, "None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0,
+				0.0);
 	}
 
 	private static void initializeGoggles()
 	{
-		items[ItemType.GOGGLES.num()][0] = new Armor("Goggles-0", ItemType.GOGGLES, "None", -1, -1,
-				0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.GOGGLES.num()][0] = new Armor("Goggles-0",
+				ItemType.GOGGLES, "None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0,
+				0.0);
 	}
 
 	private static void initializeHats()
 	{
-		items[ItemType.HAT.num()][0] = new Armor("Hats-0", ItemType.HAT, "None", -1, -1, 0, 0,
-				0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.HAT.num()][0] = new Armor("Hats-0", ItemType.HAT,
+				"None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
 	}
 
 	private static void initializeMeleeWeapons()
 	{
-		items[ItemType.MELEE_WEAPON.num()][0] = new MeleeWeapon("MeleeWeapon-0", ItemType.MELEE_WEAPON,
-				"Fist", 1, 2, -1, -1, 5, WeaponHand.EITHER, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
+		items[ItemType.MELEE_WEAPON.num()][0] = new MeleeWeapon(
+				"MeleeWeapon-0", ItemType.MELEE_WEAPON, "Fist", 1, 2, -1, -1,
+				5, WeaponHand.EITHER, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
 	}
 
 	private static void initializePants()
 	{
-		items[ItemType.PANTS.num()][0] = new Armor("Pants-0", ItemType.PANTS, "Cloth Pants", 10,
-				10, 5, 0, 1, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.PANTS.num()][0] = new Armor("Pants-0", ItemType.PANTS,
+				"Cloth Pants", 10, 10, 5, 0, 1, 0, 0, 0, 0, 0, 0.0, 0.0);
 	}
 
 	private static void initializeRings()
 	{
-		items[ItemType.RING.num()][0] = new Armor("Ring-0", ItemType.RING, "None", -1, -1, 0, 0,
-				0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.RING.num()][0] = new Armor("Ring-0", ItemType.RING,
+				"None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
 	}
 
 	private static void initializeShields()
 	{
-		items[ItemType.SHIELD.num()][0] = new Armor("Shield-0", ItemType.SHIELD, "None", -1, -1,
-				0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.SHIELD.num()][0] = new Armor("Shield-0",
+				ItemType.SHIELD, "None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0,
+				0.0);
 	}
 
 	private static void initializeShoulders()
 	{
-		items[ItemType.SHOULDER.num()][0] = new Armor("Shoulders-0", ItemType.SHOULDER, "None", -1,
-				-1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.SHOULDER.num()][0] = new Armor("Shoulders-0",
+				ItemType.SHOULDER, "None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0,
+				0.0);
 	}
 
 	private static void initializeSocks()
 	{
-		items[ItemType.SOCKS.num()][0] = new Armor("Socks-0", ItemType.SOCKS, "None", -1, -1, 0,
-				0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.SOCKS.num()][0] = new Armor("Socks-0", ItemType.SOCKS,
+				"None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
 	}
 
 	private static void initializeBelts()
 	{
-		items[ItemType.BELT.num()][0] = new Armor("Belt-0", ItemType.BELT, "None", -1, -1, 0, 0,
-				0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.BELT.num()][0] = new Armor("Belt-0", ItemType.BELT,
+				"None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
 	}
 
 	private static void initializeEarrings()
 	{
-		items[ItemType.EARRING.num()][0] = new Armor("Earring-0", ItemType.EARRING, "None", -1, -1,
-				0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0);
+		items[ItemType.EARRING.num()][0] = new Armor("Earring-0",
+				ItemType.EARRING, "None", -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0.0,
+				0.0);
 	}
 
 	public static Item getItem(int type, int i)
